@@ -1,4 +1,21 @@
-#!/bin/bash
+Content-Type: multipart/mixed; boundary="//"
+MIME-Version: 1.0
+
+--//
+Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="cloud-config.txt"
+
+#cloud-config
+cloud_final_modules:
+- [scripts-user, always]
+
+--//
+Content-Type: text/x-shellscript; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="userdata.txt"
 
 # automating some of the tasks in this ACG course:
 # https://learn.acloud.guru/course/aws-certified-big-data-specialty
@@ -54,3 +71,6 @@ chown -R ec2-user:ec2-user $home_dir $emr_dir $tpch_dir $rdsh_dir
 aws s3 cp $rdsh_dir s3://$my_bucket/redshiftdata --recursive
 # once done, verify files are in s3. You can then safely terminate the instance
 shutdown -h now
+
+--//
+
