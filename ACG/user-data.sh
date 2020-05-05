@@ -56,9 +56,9 @@ export DSS_PATH=$rdsh_dir
 cd $tpch_dir/dbgen
 ./dbgen -v -T o -s 40
 cd $rdsh_dir
-wc -l orders.tbl
+# wc -l orders.tbl
 split -d -l 15000000 -a 4 orders.tbl orders.tbl.
-wc -l lineitem.tbl
+# wc -l lineitem.tbl
 split -d -l 60000000 -a 4 lineitem.tbl lineitem.tbl.
 # rm lineitem.tbl orders.tbl
 chown -R ec2-user:ec2-user $home_dir $emr_dir $tpch_dir $rdsh_dir
